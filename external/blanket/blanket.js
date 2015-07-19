@@ -4364,7 +4364,9 @@ _blanket.extend({
         }else if (typeof _blanket.options("reporter") === "function"){
             _blanket.options("reporter")(coverage_data,_blanket.options("reporter_options"));
         }else if (typeof _blanket.defaultReporter === 'function'){
-            _blanket.defaultReporter(coverage_data,_blanket.options("reporter_options"));
+			setTimeout(function () {
+				_blanket.defaultReporter(coverage_data,_blanket.options("reporter_options"));
+			}, 500);
         }else{
             throw new Error("no reporter defined.");
         }
